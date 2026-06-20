@@ -6,11 +6,11 @@ import { useEffect, useCallback, useRef } from 'react'
 export function openLightbox(images: string[], index: number) {
   // 动态导入后调用 Fancybox.show()
   import('@fancyapps/ui/dist/fancybox/fancybox.js').then(({ Fancybox }) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     Fancybox.show(
       images.map((src) => ({ src, type: 'image' })),
       {
         startIndex: index,
-        Thumbs: false,
         Toolbar: {
           display: {
             left: ['infobar'],
@@ -28,7 +28,7 @@ export function openLightbox(images: string[], index: number) {
           ERROR: '加载失败',
           IMAGE_ERROR: '图片加载失败',
         },
-      }
+      } as any
     )
   })
 }

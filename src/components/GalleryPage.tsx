@@ -49,7 +49,7 @@ function ApiAddressBar({ categoryId }: { categoryId: string }) {
           variant="outline"
           size="icon"
           onClick={handleCopy}
-          className={`shrink-0 ${copied ? 'border-green-500 text-green-600' : ''}`}
+          className={`shrink-0 h-12 w-12 ${copied ? 'border-green-500 text-green-600' : ''}`}
           aria-label={copied ? '已复制' : '复制地址'}
         >
           {copied ? (
@@ -78,7 +78,7 @@ export function GalleryPage({ categoryId }: GalleryPageProps) {
     <div className="flex min-h-screen flex-col">
       <Header />
 
-      <main className="flex-1 mx-auto w-full max-w-7xl px-4 sm:px-6 space-y-6">
+      <main className="flex-1 mx-auto w-full max-w-7xl px-4 sm:px-6 pt-6 space-y-6">
         {/* API 地址区域 */}
         <ApiAddressBar categoryId={categoryId} />
 

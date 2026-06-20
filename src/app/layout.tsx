@@ -16,10 +16,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'FIS随机图 - 游戏图片展示平台',
+    default: 'FIS随机图 - 高清随机图片展示平台',
     template: '%s | FIS随机图',
   },
-  description: '浏览我的世界、暗区突围、终末地游戏图片，支持搜索、排序和高清预览',
+  description: '浏览我的世界、暗区突围、终末地等高清随机图片，支持搜索、排序和高清预览',
   keywords: ['随机图', '我的世界', '暗区突围', '终末地', '游戏图片', 'Minecraft', 'Arena Breakout'],
   authors: [{ name: 'fishcpy' }],
   icons: {
@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'zh_CN',
     siteName: 'FIS随机图',
-    title: 'FIS随机图 - 游戏图片展示平台',
-    description: '浏览我的世界、暗区突围、终末地游戏图片，支持搜索、排序和高清预览',
+    title: 'FIS随机图 - 高清随机图片展示平台',
+    description: '浏览我的世界、暗区突围、终末地等高清随机图片，支持搜索、排序和高清预览',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FIS随机图 - 游戏图片展示平台',
-    description: '浏览我的世界、暗区突围、终末地游戏图片',
+    title: 'FIS随机图 - 高清随机图片展示平台',
+    description: '浏览我的世界、暗区突围、终末地等高清随机图片',
   },
 }
 

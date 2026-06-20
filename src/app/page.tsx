@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
-import { GalleryPage } from '@/components/GalleryPage'
+import { HomePage } from '@/components/HomePage'
 
 export const metadata: Metadata = {
-  title: '我的世界',
-  description: '浏览我的世界（Minecraft）游戏高清截图与壁纸，支持随机展示、最新排序和搜索功能',
+  title: 'FIS随机图',
+  description: '浏览我的世界、暗区突围、终末地等高清随机图片，支持随机展示、最新排序和搜索功能',
   alternates: {
     canonical: 'https://pic.fis.ink/',
   },
 }
 
-export default function HomePage() {
-  return <GalleryPage categoryId="mc" />
+export default function Page() {
+  return <HomePage />
 }

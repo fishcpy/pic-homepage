@@ -1,9 +1,9 @@
 // 随机图分类标识符
-export type GameCategory = 'mc' | 'aqtw' | 'end'
+export type CategoryId = string
 
 // 分类信息接口
 export interface CategoryInfo {
-  id: GameCategory
+  id: CategoryId
   name: string
   apiUrl: string       // 实际获取图片数据的 JSON 接口
   displayUrl?: string   // 顶部展示用的 API 地址（如 pic.fis.ink/mc）

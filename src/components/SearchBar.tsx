@@ -1,34 +1,36 @@
 'use client'
 
-import { useAppStore } from '@/stores/useAppStore'
 import { Search, X } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { useCallback, useRef, useEffect, useState } from 'react'
 
-export function SearchBar() {
-  const searchQuery = useAppStore((s) => s.searchQuery)
-  const setSearchQuery = useAppStore((s) => s.setSearchQuery)
-  const inputRef = useRef<HTMLInputElement>(null)
-  const [localValue, setLocalValue] = useState(searchQuery)
+interface SearchBarProps {
+  value: string
+  onChange: (value: string) => void
+}
 
-  // 防抖：300ms 后同步到 store
+export function SearchBar({ value, onChange }: SearchBarProps) {
+  const inputRef = useRef<HTMLInputElement>(null)
+  const [localValue, setLocalValue] = useState(value)
+
+  // 防抖：300ms 后同步到父组件
   useEffect(() => {
     const timer = setTimeout(() => {
-      setSearchQuery(localValue)
+      onChange(localValue)
     }, 300)
     return () => clearTimeout(timer)
-  }, [localValue, setSearchQuery])
+  }, [localValue, onChange])
 
-  // 外部变化时同步本地值
+  // 外部变化时同步本地值（如路由切换重置）
   useEffect(() => {
-    setLocalValue(searchQuery)
-  }, [searchQuery])
+    setLocalValue(value)
+  }, [value])
 
   const clearSearch = useCallback(() => {
     setLocalValue('')
-    setSearchQuery('')
+    onChange('')
     inputRef.current?.focus()
-  }, [setSearchQuery])
+  }, [onChange])
 
   return (
     <div className="relative flex items-center">

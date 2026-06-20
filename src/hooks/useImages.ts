@@ -1,7 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback, useRef } from 'react'
-import { useAppStore } from '@/stores/useAppStore'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { getCategoryById } from '@/data/categories'
 import { ImageLoadStatus } from '@/lib/types'
 
@@ -25,17 +24,18 @@ function extractDateFromUrl(url: string): Date | null {
   return null
 }
 
-export function useImages() {
-  const category = useAppStore((s) => s.category)
-  const sortType = useAppStore((s) => s.sortType)
+interface UseImagesProps {
+  categoryId: string
+  sortType: 'random' | 'latest'
+}
 
+export function useImages({ categoryId, sortType }: UseImagesProps) {
   const [images, setImages] = useState<string[]>([])
   const [status, setStatus] = useState<ImageLoadStatus>('idle')
   const [error, setError] = useState<string | null>(null)
   const cacheRef = useRef<Map<string, string[]>>(new Map())
 
   const fetchImages = useCallback(async (catId: string) => {
-    // 检查缓存
     if (cacheRef.current.has(catId)) {
       const cached = cacheRef.current.get(catId)!
       setImages(cached)
@@ -54,7 +54,6 @@ export function useImages() {
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
 
       const data: string[] = await res.json()
-      // 去重
       const unique = [...new Set(data)]
       cacheRef.current.set(catId, unique)
       setImages(unique)
@@ -66,17 +65,15 @@ export function useImages() {
     }
   }, [])
 
-  // 分类变化时重新获取
   useEffect(() => {
-    fetchImages(category)
-  }, [category, fetchImages])
+    fetchImages(categoryId)
+  }, [categoryId, fetchImages])
 
   // 排序逻辑
   const sortedImages = (() => {
     if (sortType === 'random') {
       return shuffle(images)
     }
-    // 最新排序：按 URL 中的日期降序
     return [...images].sort((a, b) => {
       const dateA = extractDateFromUrl(a)
       const dateB = extractDateFromUrl(b)
@@ -88,9 +85,9 @@ export function useImages() {
   })()
 
   const retry = useCallback(() => {
-    cacheRef.current.delete(category)
-    fetchImages(category)
-  }, [category, fetchImages])
+    cacheRef.current.delete(categoryId)
+    fetchImages(categoryId)
+  }, [categoryId, fetchImages])
 
   return { images: sortedImages, status, error, retry }
 }

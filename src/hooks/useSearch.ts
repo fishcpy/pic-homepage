@@ -1,11 +1,8 @@
 'use client'
 
 import { useMemo } from 'react'
-import { useAppStore } from '@/stores/useAppStore'
 
-export function useSearch(images: string[]) {
-  const searchQuery = useAppStore((s) => s.searchQuery)
-
+export function useSearch(images: string[], searchQuery: string) {
   const filteredImages = useMemo(() => {
     if (!searchQuery.trim()) return images
     const query = searchQuery.toLowerCase().trim()

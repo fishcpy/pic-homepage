@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import './globals.css'
@@ -51,6 +52,11 @@ export default function RootLayout({
         <ThemeProvider>
           {children}
         </ThemeProvider>
+        <Script
+          defer
+          src="https://um.fis.ink/script.js"
+          data-website-id="f6f1e0f6-e38d-40fc-9405-d1c10a30d3fb"
+        />
       </body>
     </html>
   )

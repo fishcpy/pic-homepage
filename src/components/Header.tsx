@@ -23,8 +23,14 @@ export function Header() {
           />
         </Link>
 
-        {/* 右侧：主题切换 + 侧边菜单 */}
+        {/* 右侧：关于 + 主题切换 + 侧边菜单 */}
         <div className="flex items-center gap-1">
+          <Link
+            href="/about"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-3 py-2"
+          >
+            关于
+          </Link>
           <ThemeToggle />
           <Sheet>
             <SheetTrigger asChild>

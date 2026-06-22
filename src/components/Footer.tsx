@@ -40,7 +40,7 @@ export function Footer() {
         {/* 分割线 + 版权 + 备案 */}
         <div className="mt-10 border-t pt-6 flex flex-col items-center gap-2">
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} FIS随机图. All rights reserved.
+            &copy; {new Date().getFullYear()} FIS随机图
           </p>
           <a
             href="https://beian.miit.gov.cn/"

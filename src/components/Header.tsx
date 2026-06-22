@@ -23,13 +23,19 @@ export function Header() {
           />
         </Link>
 
-        {/* 右侧：关于 + 主题切换 + 侧边菜单 */}
+        {/* 右侧：关于 + 文档 + 主题切换 + 侧边菜单 */}
         <div className="flex items-center gap-1">
           <Link
             href="/about"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-3 py-2"
           >
             关于
+          </Link>
+          <Link
+            href="/docs"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-3 py-2"
+          >
+            文档
           </Link>
           <ThemeToggle />
           <Sheet>
@@ -55,11 +61,11 @@ export function Header() {
                   首页
                 </Link>
                 {categories.map((cat) => {
-                  const isActive = pathname === `/${cat.id}`
+                  const isActive = pathname === `/pic/${cat.id}`
                   return (
                     <Link
                       key={cat.id}
-                      href={`/${cat.id}`}
+                      href={`/pic/${cat.id}`}
                       className={`rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200 ${
                         isActive
                           ? 'bg-primary text-primary-foreground'

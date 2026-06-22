@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/ThemeProvider'
-import { PageTransition } from '@/components/PageTransition'
 import './globals.css'
 
 const geistSans = Geist({
@@ -51,7 +50,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
         <ThemeProvider>
-          <PageTransition>{children}</PageTransition>
+          {children}
         </ThemeProvider>
         <Script
           defer

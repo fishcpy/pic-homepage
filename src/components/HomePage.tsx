@@ -85,7 +85,7 @@ export function HomePage() {
                 key={cat.id}
                 name={cat.name}
                 displayUrl={cat.displayUrl || cat.apiUrl}
-                href={`/${cat.id}`}
+                href={`/pic/${cat.id}`}
               />
             ))}
           </div>

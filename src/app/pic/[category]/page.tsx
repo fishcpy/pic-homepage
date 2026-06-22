@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: `${meta.title} - FIS随机图`,
       description: meta.description,
-      url: `https://pic.fis.ink/${category}`,
+      url: `https://pic.fis.ink/pic/${category}`,
       images: catInfo?.apiUrl ? [
         {
           url: catInfo.apiUrl.replace('.json', ''),
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: meta.description,
     },
     alternates: {
-      canonical: `https://pic.fis.ink/${category}`,
+      canonical: `https://pic.fis.ink/pic/${category}`,
     },
   }
 }

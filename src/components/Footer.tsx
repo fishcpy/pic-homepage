@@ -3,7 +3,7 @@ import { categories } from '@/data/categories'
 
 const footerNav = [
   { label: '首页', href: '/' },
-  ...categories.map((cat) => ({ label: cat.name, href: `/${cat.id}` })),
+  ...categories.map((cat) => ({ label: cat.name, href: `/pic/${cat.id}` })),
 ]
 
 export function Footer() {

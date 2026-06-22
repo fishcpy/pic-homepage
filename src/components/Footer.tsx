@@ -11,11 +11,11 @@ export function Footer() {
     <footer className="border-t bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10 sm:py-12">
         {/* 导航链接区 */}
-        <div className="flex flex-col gap-8 sm:flex-row sm:justify-between sm:gap-12">
+        <div className="flex flex-col gap-8 sm:flex-row sm:justify-between sm:gap-12 items-center sm:items-start">
           {/* 分类导航 */}
-          <div>
+          <div className="text-center sm:text-left">
             <h3 className="mb-3 text-sm font-semibold text-foreground">图片分类</h3>
-            <nav aria-label="页脚导航" className="flex flex-col gap-2">
+            <nav aria-label="页脚导航" className="flex flex-col gap-2 items-center sm:items-start">
               {footerNav.map((link) => (
                 <Link
                   key={link.href}
@@ -29,7 +29,7 @@ export function Footer() {
           </div>
 
           {/* 关于 */}
-          <div className="sm:text-right">
+          <div className="text-center sm:text-right">
             <h3 className="mb-3 text-sm font-semibold text-foreground">关于</h3>
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
               FIS 随机图是一个高清图片展示平台，支持随机展示、搜索与排序，为用户提供便捷的图片浏览体验。

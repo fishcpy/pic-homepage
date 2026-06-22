@@ -139,3 +139,124 @@ html {
   animation: fade-in-up 0.4s ease-out forwards;
   opacity: 0;
 }
+
+/* Sheet 滑入滑出动画 */
+@keyframes slide-in-from-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-to-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-in-from-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-to-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-in {
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.animate-out {
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.fade-in-0 {
+  animation-name: fade-in;
+}
+
+.fade-out-0 {
+  animation-name: fade-out;
+}
+
+.slide-in-from-right {
+  animation-name: slide-in-from-right;
+}
+
+.slide-out-to-right {
+  animation-name: slide-out-to-right;
+}
+
+.slide-in-from-left {
+  animation-name: slide-in-from-left;
+}
+
+.slide-out-to-left {
+  animation-name: slide-out-to-left;
+}
+
+.data-\[state\=open\]\:animate-in[data-state="open"] {
+  animation-duration: 0.5s;
+}
+
+.data-\[state\=closed\]\:animate-out[data-state="closed"] {
+  animation-duration: 0.3s;
+}
+
+.data-\[state\=open\]\:fade-in-0[data-state="open"] {
+  animation-name: fade-in;
+}
+
+.data-\[state\=closed\]\:fade-out-0[data-state="closed"] {
+  animation-name: fade-out;
+}
+
+.data-\[state\=open\]\:slide-in-from-right[data-state="open"] {
+  animation-name: slide-in-from-right;
+}
+
+.data-\[state\=closed\]\:slide-out-to-right[data-state="closed"] {
+  animation-name: slide-out-to-right;
+}
+
+.data-\[state\=open\]\:slide-in-from-left[data-state="open"] {
+  animation-name: slide-in-from-left;
+}
+
+.data-\[state\=closed\]\:slide-out-to-left[data-state="closed"] {
+  animation-name: slide-out-to-left;
+}
